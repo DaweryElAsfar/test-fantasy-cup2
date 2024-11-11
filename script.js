@@ -1,152 +1,93 @@
-import React, { useState } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Trophy } from "lucide-react"
-
-interface Team {
-  name: string
-  manager: string
-}
-
-interface Match {
-  team1: Team
-  team2: Team
-  score1?: number
-  score2?: number
-}
-
-interface Round {
-  name: string
-  matches: Match[]
-}
-
-const initialTeams: Team[] = [
-  { name: "Bovaa", manager: "Bavly mounir" },
-  { name: "Verinaaaaa", manager: "Verinaa adel" },
-  { name: "بابا الشغلانة", manager: "سيف البير" },
-  { name: "Philo", manager: "Philo emil" },
-  { name: "Bavlos ⚡", manager: "Bavly aziz ⚡" },
-  { name: "Dr3m", manager: "youssef hany" },
-  { name: "Blues FC", manager: "romany" },
-  { name: "Bo4kaa4", manager: "Bishoy emad" },
-]
-
-export default function FantasyCupBracket() {
-  const [rounds, setRounds] = useState<Round[]>([
-    {
-      name: "Quarter-Finals",
-      matches: [
-        { team1: initialTeams[0], team2: initialTeams[7] },
-        { team1: initialTeams[1], team2: initialTeams[6] },
-        { team1: initialTeams[2], team2: initialTeams[5] },
-        { team1: initialTeams[3], team2: initialTeams[4] },
-      ],
-    },
-    {
-      name: "Semi-Finals",
-      matches: [
-        { team1: { name: "TBD", manager: "" }, team2: { name: "TBD", manager: "" } },
-        { team1: { name: "TBD", manager: "" }, team2: { name: "TBD", manager: "" } },
-      ],
-    },
-    {
-      name: "Final",
-      matches: [
-        { team1: { name: "TBD", manager: "" }, team2: { name: "TBD", manager: "" } },
-      ],
-    },
-  ]);
-
-  const [activeSection, setActiveSection] = useState(0);
-
-  const updateScore = (roundIndex: number, matchIndex: number, team: 'team1' | 'team2', score: number) => {
-    setRounds(prevRounds => {
-      const newRounds = [...prevRounds];
-      newRounds[roundIndex].matches[matchIndex][team === 'team1' ? 'score1' : 'score2'] = score;
-      return newRounds;
+// JavaScript for Section Switching
+function showSection(sectionId) {
+    document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
     });
-  }
-
-  const advanceWinner = (roundIndex: number, matchIndex: number) => {
-    if (roundIndex >= rounds.length - 1) return; // Don't advance from the final
-
-    const match = rounds[roundIndex].matches[matchIndex];
-    if (match.score1 === undefined || match.score2 === undefined) return;
-
-    const winner = match.score1 > match.score2 ? match.team1 : match.team2;
-    const nextRoundMatchIndex = Math.floor(matchIndex / 2);
-    const nextRoundTeamIndex = matchIndex % 2 === 0 ? 'team1' : 'team2';
-
-    setRounds(prevRounds => {
-      const newRounds = [...prevRounds];
-      newRounds[roundIndex + 1].matches[nextRoundMatchIndex][nextRoundTeamIndex] = winner;
-      return newRounds;
-    });
-  }
-
-  const handleSectionChange = (index: number) => {
-    setActiveSection(index);
-  }
-
-  return (
-    <Card className="w-full max-w-4xl mx-auto">
-      <CardHeader>
-        <CardTitle className="text-2xl font-bold text-center">Fantasy Cup Bracket</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="flex justify-around mb-4">
-          {rounds.map((round, index) => (
-            <Button key={round.name} onClick={() => handleSectionChange(index)} className={`mx-2 ${activeSection === index ? 'bg-blue-500 text-white' : ''}`}>
-              {round.name}
-            </Button>
-          ))}
-        </ div>
-        <div className="flex flex-col md:flex-row justify-around items-start gap-4">
-          {rounds[activeSection].matches.map((match, matchIndex) => (
-            <Card key={`${rounds[activeSection].name}-${matchIndex}`} className="mb-4 p-2">
-              <div className="flex flex-col gap-2">
-                <div className="flex justify-between items-center">
-                  <span className="font-medium">{match.team1.name}</span>
-                  <input
-                    type="number"
-                    value={match.score1 ?? ''}
-                    onChange={(e) => updateScore(activeSection, matchIndex, 'team1', parseInt(e.target.value))}
-                    className="w-12 text-center border rounded"
-                    min="0"
-                  />
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="font-medium">{match.team2.name}</span>
-                  <input
-                    type="number"
-                    value={match.score2 ?? ''}
-                    onChange={(e) => updateScore(activeSection, matchIndex, 'team2', parseInt(e.target.value))}
-                    className="w-12 text-center border rounded"
-                    min="0"
-                  />
-                </div>
-                {activeSection < rounds.length - 1 && (
-                  <Button 
-                    onClick={() => advanceWinner(activeSection, matchIndex)}
-                    className="mt-2"
-                    disabled={match.score1 === undefined || match.score2 === undefined}
-                  >
-                    Advance Winner
-                  </Button>
-                )}
-                {activeSection === rounds.length - 1 && match.score1 !== undefined && match.score2 !== undefined && (
-                  <div className="flex items-center justify-center mt-2 text-yellow-500">
-                    <Trophy className="mr-2" />
-                    <span className="font-bold">
-                      Winner: {match.score1 > match.score2 ? match.team1.name : match.team2.name}
-                    </span>
-                  </div>
-                )}
-              </div>
-            </Card>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
-  )
+    document.getElementById(sectionId).classList.add('active');
 }
+
+// Sample data for teams and rankings (Replace this with actual data source)
+const teams = [
+    { name: "Bovaa", manager: "Bavly Mounir", rank: 1 },
+    { name: "Verinaaaaa", manager: "Verina Adel", rank: 2 },
+    { name: "بابا الشغلانة", manager: "سيف البير", rank: 3 },
+    { name: "Philo", manager: "Philo Emil", rank: 4 },
+    { name: "Bavlos ⚡", manager: "Bavly Aziz ⚡", rank: 5 },
+    { name: "Dr3m", manager: "Youssef Hany", rank: 6 },
+    { name: "Blues FC", manager: "Romany", rank: 7 },
+    { name: "Bo4kaa4", manager: "Bishoy Emad", rank: 8 },
+    { name: "Extra Team", manager: "Extra Manager", rank: 9 },
+    { name: "Wildcard", manager: "Random Manager", rank: 10 },
+];
+
+// Function to generate the Cup Bracket
+function generateCupBracket() {
+    // Filter and sort the top 8 teams by rank
+    const topTeams = teams.sort((a, b) => a.rank - b.rank).slice(0, 8);
+
+    // Define the initial matchups for quarter-finals
+    const bracket = {
+        quarterFinals: [
+            { team1: topTeams[0], team2: topTeams[7] },
+            { team1: topTeams[1], team2: topTeams[6] },
+            { team1: topTeams[2], team2: topTeams[5] },
+            { team1: topTeams[3], team2: topTeams[4] },
+        ],
+        semiFinals: [
+            { team1: null, team2: null },
+            { team1: null, team2: null },
+        ],
+        final: [
+            { team1: null, team2: null },
+        ],
+    };
+
+    // Render the bracket to the DOM
+    displayBracket(bracket);
+}
+
+// Function to display the bracket in HTML
+function displayBracket(bracket) {
+    const bracketContainer = document.getElementById("cup-bracket");
+    bracketContainer.innerHTML = ""; // Clear previous bracket
+
+    // Quarter-Finals
+    const quarterFinalsDiv = document.createElement("div");
+    quarterFinalsDiv.classList.add("round");
+    quarterFinalsDiv.innerHTML = "<h3>Quarter-Finals</h3>";
+    bracket.quarterFinals.forEach((match, index) => {
+        const matchDiv = document.createElement("div");
+        matchDiv.classList.add("match");
+        matchDiv.innerHTML = `
+            <div>${match.team1.name} (Manager: ${match.team1.manager})</div>
+            <div>vs</div>
+            <div>${match.team2.name} (Manager: ${match.team2.manager})</div>
+        `;
+        quarterFinalsDiv.appendChild(matchDiv);
+    });
+    bracketContainer.appendChild(quarterFinalsDiv);
+
+    // Semi-Finals Placeholder
+    const semiFinalsDiv = document.createElement("div");
+    semiFinalsDiv.classList.add("round");
+    semiFinalsDiv.innerHTML = "<h3>Semi-Finals</h3>";
+    bracket.semiFinals.forEach(() => {
+        const matchDiv = document.createElement("div");
+        matchDiv.classList.add("match");
+        matchDiv.innerHTML = `<div>Winner TBD</div>`;
+        semiFinalsDiv.appendChild(matchDiv);
+    });
+    bracketContainer.appendChild(semiFinalsDiv);
+
+    // Final Placeholder
+    const finalDiv = document.createElement("div");
+    finalDiv.classList.add("round");
+    finalDiv.innerHTML = "<h3>Final</h3>";
+    finalDiv.innerHTML += `<div class="match">Winner TBD</div>`;
+    bracketContainer.appendChild(finalDiv);
+}
+
+// Initialize the Cup Bracket when the page loads or when the section is shown
+document.addEventListener("DOMContentLoaded", () => {
+    generateCupBracket();
+});
