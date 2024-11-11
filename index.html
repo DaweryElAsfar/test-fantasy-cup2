@@ -1,1 +1,111 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy League Dashboard</title>
+     
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <button onclick="showSection('fantasy-teams')">Team Points - Last Round</button>
+            <button onclick="showSection('top-players')">Top Players - Last Round</button>
+            <button onclick="showSection('all-time-best-players')">Top Players - All Time</button>
+            <button onclick="showSection('all-teams')">All Teams</button>
+<button onclick="showSection('fantasy-cup')">Fantasy Cup</button>
+        </nav>
+    </header>
+    <main>
+        <!-- Fantasy Teams Section -->
+        <section id="fantasy-teams" class="section active">
+            <h2>Team Points - Last Round</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team Name</th>
+                        <th>Manager</th>
+                        <th>Last Round Points</th>
+                        <th>Total Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Bovaa</td><td>Bavly mounir</td><td>50</td></td><td>50</td></tr>
+                    <tr><td>2</td><td>Verinaaaaa</td><td>Verinaa adel</td><td>47</td><td>47</td></tr>
+                    <tr><td>3</td><td>بابا الشغلانة</td><td>سيف البير</td><td>47</td><td>47</td></tr>
+                    <tr><td>4</td><td>Philo</td><td>Philo emil</td><td>46</td><td>46</td></tr>
+                    <tr><td>5</td><td>Bavlos ⚡</td><td>Bavly aziz ⚡</td><td>43</td><td>43</td></tr>
+                    <tr><td>6</td><td>Dr3m</td><td>youssef hany</td><td>43</td><td>43</td></tr>
+                    <tr><td>7</td><td>Blues FC</td><td>romany</td><td>42</td><td>42</td></tr>
+                    <tr><td>8</td><td>Bo4kaa4</td><td>Bishoy emad</td><td>40</td><td>40</td></tr>
+                    <tr><td>9</td><td>ميرو</td><td>امير</td><td>40</td><td>40</td></tr>
+                    <tr><td>10</td><td>Fantasy asfaar</td><td>مريم يعقوب</td><td>38</td><td>38</td></tr>
+                    <tr><td>11</td><td>Mika fc</td><td>مايكل ممدوح</td><td>38</td><td>38</td></tr>
+                    <tr><td>12</td><td>الحصان الفسفوري</td><td>يوسف نصرالله</td><td>38</td><td>38</td></tr>
+                    <tr><td>13</td><td>أبو كريم</td><td>لوقا عبد المسيح </td><td>38</td><td>38</td></tr>
+                    <tr><td>14</td><td>pasito</td><td>youssef magdy</td><td>38</td><td>38</td></tr>
+                    <tr><td>15</td><td>Drummer</td><td>rafeek</td><td>38</td><td>38</td></tr>
+                    <tr><td>16</td><td>نادى محبى نصرالله و دوحه</td><td>فادي سامح </td><td>36</td><td>36</td></tr>
+                    <tr><td>17</td><td>kero</td><td>kero nabil</td><td>34</td><td>34</td></tr>
+                    <tr><td>18</td><td>محدش فاهم حاجة</td><td>bishoy ayman</td><td>31</td><td>31</td></tr>
+                    <tr><td>19</td><td>jooo</td><td>youssef zahy</td><td>30</td><td>30</td></tr>
+                    <tr><td>20</td><td>خليها علي الله اوي</td><td>youssef iskander</td><td>30</td><td>30</td></tr>
+                    <tr><td>21</td><td>هاريدي</td><td>mi5a2el</td><td>30</td><td>30</td></tr>
+                    <tr><td>22</td><td>Mariooo</td><td>Mariooo</td><td>26</td><td>26</td></tr>
+                    <tr><td>23</td><td>مدريد</td><td>مدريد</td><td>26</td><td>26</td></tr>
+                    <tr><td>24</td><td>geo</td><td>george osama</td><td>26</td><td>26</td></tr>
+                    <tr><td>25</td><td>United</td><td>mina gamil</td><td>26</td><td>26</td></tr>
+                    <tr><td>26</td><td>ضحكة 😂😂😂😂🙈</td><td>yousab</td><td>26</td><td>26</td></tr>
+                    <tr><td>27</td><td>Yasooo Fc</td><td>Yasooo Fc</td><td>24</td><td>24</td></tr>
+                    <tr><td>28</td><td>Terter</td><td>Esther alber</td><td>22</td><td>22</td></tr>
+                    <tr><td>29</td><td>Marimocheck</td><td>mariam tarek</td><td>21</td><td>21</td></tr>
+                    <tr><td>30</td><td>الدحادييح</td><td>do7a moslh</td><td>18</td><td>18</td></tr>
+                    <tr><td>31</td><td>سامح</td><td>سامح</td><td>18</td><td>18</td></tr>
+                    <tr><td>32</td><td>Al3almyy</td><td>kero farid</td><td>17</td><td>17</td></tr>
+                    <tr><td>33</td><td>هكر عين شمس 😎😎☝️☝️</td><td>remon ehab</td><td>17</td><td>17</td></tr>
+                    <tr><td>34</td><td>ZERO</td><td>peter erian</td><td>13</td><td>13</td></tr>
+                    <tr><td>35</td><td>mario fc</td><td>mario maged</td><td>13</td><td>13</td></tr>
+                    <tr><td>36</td><td>Mrmr</td><td>meriam mosleh</td><td>12</td><td>12</td></tr>
+                    <tr><td>37</td><td>Okay okay</td><td>Mary maged</td><td>9</td><td>9</td></tr>
+                    <tr><td>38</td><td>سيد</td><td>abanoub zaki</td><td>8</td><td>8</td></tr>
+                    <tr><td>39</td><td>خليها على الله</td><td>abanoub fawezy </td><td>4</td><td>4</td></tr>
+                    <tr><td>40</td><td>Zezowski</td><td>andrew gamal</td><td>4</td><td>4</td></tr>
+                    <tr><td>41</td><td>Karin🫡</td><td>Karin nabil</td><td>4</td><td>4</td></tr>
+                    <tr><td>42</td><td>فيلوو</td><td>philo zaki</td><td>0</td><td>0</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Top Players Section -->
+        <section id="top-players" class="section">
+            <h2>Top Players - Last Round</h2>
+            <div class="player-card-container">
+                <div class="player-card">
+                    <h3>Player: kero nabil</h3>
+                    <p>مستوي: اول</p>
+                    <p>Points: 17</p>
+                </div>
+                <div class="player-card">
+                    <h3>Player: لوقا عبد المسيح</h3>
+                    <p>مستوي : تاني</p>
+                    <p>Points: 13</p>
+                </div>
+                <div class="player-card">
+                    <h3>Player: رفيق يعقوب</h3>
+                    <p>مستوي : اول</p>
+                    <p>Points: 13</p>
+                </div>
+            </div>
+        </section>
+<section id="fantasy-cup" class="section">
+  <div id="fantasy-cup-root"></div>
+</section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+    </html>
