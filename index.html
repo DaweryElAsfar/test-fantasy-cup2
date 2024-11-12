@@ -159,130 +159,6 @@
         }
     </style>
 
-<body>
-    <!-- Navigation Bar -->
-    <nav>
-        <button onclick="showSection('rankings')">Rankings</button>
-        <button onclick="showSection('bracket')">Bracket</button>
-        <button onclick="showSection('players')">Players</button>
-    </nav>
-
-    <!-- Rankings Section -->
-    <div id="rankings" class="section active">
-        <h1>Top 8 Rankings</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Team</th>
-                    <th>Manager</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>1</td><td>Bovaa</td><td>Bavly Mounir</td></tr>
-                <tr><td>2</td><td>Verinaaaaa</td><td>Verinaa Adel</td></tr>
-                <tr><td>3</td><td>Philo</td><td>Philo Emil</td></tr>
-                <tr><td>4</td><td>Bo4kaa4</td><td>Bishoy Emad</td></tr>
-                <tr><td>5</td><td>Bavlos ⚡</td><td>Bavly Aziz ⚡</td></tr>
-                <tr><td>6</td><td>Dr3m</td><td>Youssef Hany</td></tr>
-                <tr><td>7</td><td>Blues FC</td><td>Romany</td></tr>
-                <tr><td>8</td><td>بابا الشغلانة</td><td>سيف البير</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bracket Section -->
-    <div id="bracket" class="section">
-        <h1>Road to the Cup</h1>
-        <div class="bracket-container">
-            <!-- Quarter-Finals -->
-            <div class="round">
-                <span>Quarter-Finals</span>
-                <div class="match">
-                    <span>Bovaa</span>
-                    <input type="number" placeholder="Score" />
-                    <span>Verinaaaaa</span>
-                    <button>Advance Winner</button>
-                </div>
-                <div class="match">
-                    <span>Philo</span>
-                    <input type="number" placeholder="Score" />
-                    <span>Bo4kaa4</span>
-                    <button>Advance Winner</button>
-                </div>
-                <div class="match">
-                    <span>Bavlos ⚡</span>
-                    <input type="number" placeholder="Score" />
-                    <span>Dr3m</span>
-                    <button>Advance Winner</button>
-                </div>
-                <div class="match">
-                    <span>Blues FC</span>
-                    <input type="number" placeholder="Score" />
-                    <span>بابا الشغلانة</span>
-                    <button>Advance Winner</button>
-                </div>
-            </div>
-
-            <!-- Semi-Finals -->
-            <div class="round">
-                <span>Semi-Finals</span>
-                <div class="match">
-                    <span>TBD</span>
-                    <input type="number" placeholder="Score" />
-                    <span>TBD</span>
-                    <button>Advance Winner</button>
-                </div>
-                <div class="match">
-                    <span>TBD</span>
-                    <input type="number" placeholder="Score" />
-                    <span>TBD</span>
-                    <button>Advance Winner</button>
-                </div>
-            </div>
-
-            <!-- Final -->
-            <div class="round">
-                <span>Final</span>
-                <div class="match">
-                    <span>TBD</span>
-                    <input type="number" placeholder="Score" />
-                    <span>TBD</span>
-                    <button>Declare Winner</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Players Section -->
-    <div id="players" class="section">
-        <h1>Players</h1>
-        <div class="player-card-container">
-            <div class="player-card">
-                <h3>Bovaa</h3>
-                <p>Manager: Bavly Mounir</p>
-            </div>
-            <div class="player-card">
-                <h3>Verinaaaaa</h3>
-                <p>Manager: Verinaa Adel</p>
-            </div>
-            <div class="player-card">
-                <h3>Philo</h3>
-                <p>Manager: Philo Emil</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- JavaScript for Section Switching -->
-    <script>
-        function showSection(sectionId) {
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.getElementById(sectionId).classList.add('active');
-        }
-    </script>
-</body>
 
 
                 <tbody>
@@ -353,8 +229,284 @@
                 </div>
             </div>
         </section>
+    
 <section id="fantasy-cup" class="section">
   <div id="fantasy-cup-root"></div>
+    <h1>Tournament Bracket</h1>
+<!--<div class="bracket">
+  <section aria-labelledby="round-1">
+    <h2 id="round-1">Round 1</h2>
+    <ol>
+      <li>
+        <div>
+          <span>Player 1</span>
+          <span>Player 2</span>
+          <span>Date: 01.01. 1pm</span>
+          </div>
+      </li>
+      <li>
+        <div>
+          <span>Player 3</span>
+          <span>Player 4</span>
+          <span>Date: 01.01. 1.30pm</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span>Player 5</span>
+          <span>Player 6</span>
+          <span>Date: 01.01. 2pm</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span>Player 7</span>
+          <span>Player 8</span>
+          <span>Date: 01.01. 2.30pm</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span>Player 9</span>
+          <span>Player 10</span>
+          <span>Date: 01.01. 3pm</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span>Player 11</span>
+          <span>Player 12</span>
+          <span>Date: 01.01. 3.30pm</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span>Player 13</span>
+          <span>Player 14</span>
+          <span>Date: 01.01. 4pm</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span>Player 15</span>
+          <span>Player 16</span>
+          <span>Date: 01.01. 4.30pm</span>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section aria-labelledby="round-2">
+    <h2 id="round-2">Round 2</h2>
+      <ol>
+        <li>
+          <div>
+            <span>Player 1</span>
+            <span>Player 3</span>
+            <span>Date: 05.01. 1pm</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span>Player 5</span>
+            <span>Player 7</span>
+            <span>Date: 05.01. 1.30pm</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span>Player 9</span>
+            <span>Player 11</span>
+            <span>Date: 05.01. 2pm</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <span>Player 13</span>
+            <span>Player 15</span>
+            <span>Date: 05.01. 2.30pm</span>
+          </div>
+        </li>
+      </ol>
+  </section>
+  <section aria-labelledby="round-3">
+    <h2 id="round-3">Round 3</h2>
+    <ol>
+      <li>
+        <div>
+          <span>Player 1</span>
+          <span>Player 5</span>
+          <span>Date: 07.01. 1pm</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span>Player 9</span>
+          <span>Player 13</span>
+          <span>Date: 07.01. 1.30pm</span>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section aria-labelledby="round-4">
+    <h2 id="round-4">Round 4</h2>
+    <ol>
+      <li>
+        <div>
+          <span>Player 1</span>
+          <span>Player 9</span>
+          <span>Date: 10.01. 1pm</span>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section aria-labelledby="winner">
+    <h2 id="winner">Winner</h2>
+    <ol>
+      <li>
+        <div>
+          <span>Player 1</span>
+        </div>
+      </li>
+    </ol>
+  </section>
+</div>-->
+
+<div class="bracket br-2">
+  <section aria-labelledby="round-1">
+    <h2 id="round-1">Round 1</h2>
+    <ol>
+      <li>
+          <a href="#">Player 1</a>
+          <a href="#">Player 2</a>
+          <span>Date: 01.01. 1pm</a>
+
+      </li>
+      <li>
+        <div>
+          <a href="#">Player 3</a>
+          <a href="#">Player 4</a>
+          <span>Date: 01.01. 1.30pm</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="#">Player 5</a>
+          <a href="#">Player 6</a>
+          <span>Date: 01.01. 2pm</s>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="#">Player 7</a>
+          <a href="#">Player 8</a>
+          <span>Date: 01.01. 2.30pm</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="#">Player 9</a>
+          <a href="#">Player 10</a>
+          <span>Date: 01.01. 3pm</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="#">Player 11</a>
+          <a href="#">Player 12</a>
+          <span>Date: 01.01. 3.30pm</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="#">Player 13</a>
+          <a href="#">Player 14</a>
+          <span>Date: 01.01. 4pm</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="#">Player 15</a>
+          <a href="#">Player 16</a>
+          <span>Date: 01.01. 4.30pm</span>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section aria-labelledby="round-2">
+    <h2 id="round-2">Round 2</h2>
+      <ol>
+        <li>
+          <div>
+            <a href="#">Player 1</a>
+            <a href="#">Player 3</a>
+            <span>Date: 05.01. 1pm</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a href="#">Player 5</a>
+            <a href="#">Player 7</a>
+            <span>Date: 05.01. 1.30pm</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a href="#">Player 9</a>
+            <a href="#">Player 11</a>
+            <span>Date: 05.01. 2pm</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a href="#">Player 13</a>
+            <a href="#">Player 15</a>
+            <span>Date: 05.01. 2.30pm</span>
+          </div>
+        </li>
+      </ol>
+  </section>
+  <section aria-labelledby="round-3">
+    <h2 id="round-3">Round 3</h2>
+    <ol>
+      <li>
+        <div>
+          <a href="#">Player 1</a>
+          <a href="#">Player 5</a>
+          <span>Date: 07.01. 1pm</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <a href="#">Player 9</a>
+          <a href="#">Player 13</a>
+          <span>Date: 07.01. 1.30pm</span>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section aria-labelledby="round-4">
+    <h2 id="round-4">Round 4</h2>
+    <ol>
+      <li>
+        <div>
+          <a href="#">Player 1</a>
+          <a href="#">Player 9</a>
+          <span>Date: 10.01. 1pm</span>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section aria-labelledby="winner">
+    <h2 id="winner">Winner</h2>
+    <ol>
+      <li>
+        <div>
+          <a href="#">Player 1</a>
+        </div>
+      </li>
+    </ol>
+  </section>
+</div>
 </section>
     </main>
 
