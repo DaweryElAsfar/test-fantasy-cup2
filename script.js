@@ -6,7 +6,7 @@ function showSection(sectionId) {
     document.getElementById(sectionId).classList.add('active');
 }
 
-// Sample data for teams and rankings (Replace this with actual data source)
+// Sample data for teams and rankings
 const teams = [
     { name: "Bovaa", manager: "Bavly Mounir", rank: 1 },
     { name: "Verinaaaaa", manager: "Verina Adel", rank: 2 },
@@ -16,16 +16,12 @@ const teams = [
     { name: "Dr3m", manager: "Youssef Hany", rank: 6 },
     { name: "Blues FC", manager: "Romany", rank: 7 },
     { name: "Bo4kaa4", manager: "Bishoy Emad", rank: 8 },
-    { name: "Extra Team", manager: "Extra Manager", rank: 9 },
-    { name: "Wildcard", manager: "Random Manager", rank: 10 },
 ];
 
 // Function to generate the Cup Bracket
 function generateCupBracket() {
-    // Filter and sort the top 8 teams by rank
     const topTeams = teams.sort((a, b) => a.rank - b.rank).slice(0, 8);
 
-    // Define the initial matchups for quarter-finals
     const bracket = {
         quarterFinals: [
             { team1: topTeams[0], team2: topTeams[7] },
@@ -42,20 +38,19 @@ function generateCupBracket() {
         ],
     };
 
-    // Render the bracket to the DOM
     displayBracket(bracket);
 }
 
 // Function to display the bracket in HTML
 function displayBracket(bracket) {
-    const bracketContainer = document.getElementById("cup-bracket");
+    const bracketContainer = document.getElementById("cup-bracket-container");
     bracketContainer.innerHTML = ""; // Clear previous bracket
 
     // Quarter-Finals
     const quarterFinalsDiv = document.createElement("div");
     quarterFinalsDiv.classList.add("round");
     quarterFinalsDiv.innerHTML = "<h3>Quarter-Finals</h3>";
-    bracket.quarterFinals.forEach((match, index) => {
+    bracket.quarterFinals.forEach((match) => {
         const matchDiv = document.createElement("div");
         matchDiv.classList.add("match");
         matchDiv.innerHTML = `
@@ -87,7 +82,7 @@ function displayBracket(bracket) {
     bracketContainer.appendChild(finalDiv);
 }
 
-// Initialize the Cup Bracket when the page loads or when the section is shown
+// Initialize the Cup Bracket when the page loads
 document.addEventListener("DOMContentLoaded", () => {
     generateCupBracket();
 });
