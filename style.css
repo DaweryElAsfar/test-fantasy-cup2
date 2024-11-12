@@ -1,6 +1,5 @@
 /* General Reset */
 * {
-    
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -51,6 +50,21 @@ nav button:hover {
 
 .section.active {
     display: block;
+}
+
+/* Button Styling */
+.button {
+    padding: 8px 16px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #0056b3;
 }
 
 /* Table Styling */
@@ -135,4 +149,26 @@ tbody tr:first-child {
 .player-card p {
     font-size: 1rem;
     color: #b2bec3; /* Softer light gray for player details */
+}
+
+/* Bracket Container */
+.bracket-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+/* Round Styling */
+.round {
+    flex: 1;
+    margin: 10px;
+}
+
+.match {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background */
+    color: #d0d0d0;
 }
