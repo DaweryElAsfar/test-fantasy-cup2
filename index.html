@@ -22,45 +22,269 @@
 <button class="button" onclick="showSection('cup-bracket')">View Cup Bracket</button>
 
 <!-- Rankings Section -->
-<div id="rankings" class="section">
-  <h2>Team Rankings</h2>
-  <ul>
-    <li>Bovaa - Rank 1</li>
-    <li>Verinaaaaa - Rank 2</li>
-    <li>بابا الشغلانة - Rank 3</li>
-    <li>Philo - Rank 4</li>
-    <li>Bavlos ⚡ - Rank 5</li>
-    <li>Dr3m - Rank 6</li>
-    <li>Blues FC - Rank 7</li>
-    <li>Bo4kaa4 - Rank 8</li>
-    <!-- Add more team rankings if needed -->
-  </ul>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Cup - Road to the Cup</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<!-- Cup Bracket Section -->
-<div id="cup-bracket" class="section">
-  <h2>Fantasy Cup Bracket</h2>
-  <div class="bracket-container" id="cup-bracket-container">
-    <!-- Bracket matches will be added here by JavaScript -->
-  </div>
-</div>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://raw.githubusercontent.com/DaweryElAsfar/DaweryElAsfar.github.io/refs/heads/main/modern-cricket-stadium-night.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #d0d0d0; 
+        }
 
-        </nav>
-    </header>
-    <main>
-        <!-- Fantasy Teams Section -->
-        <section id="fantasy-teams" class="section active">
-            <h2>Team Points - Last Round</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Team Name</th>
-                        <th>Manager</th>
-                        <th>Last Round Points</th>
-                        <th>Total Points</th>
-                    </tr>
-                </thead>
+        /* Navigation Bar */
+        nav {
+            background-color: rgba(30, 39, 46, 0.9); 
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+        }
+
+        nav button {
+            background-color: #2d3436; 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav button:hover {
+            background-color: #0984e3; 
+        }
+
+        /* Section Styling */
+        .section {
+            display: none;
+            margin: 40px auto;
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* Bracket Container */
+        .bracket-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            gap: 50px;
+        }
+
+        /* Round Styling */
+        .round {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .round span {
+            font-size: 18px;
+            color: #dfe6e9;
+            font-weight: bold;
+        }
+
+        /* Match Styling */
+        .match {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(34, 47, 62, 0.9);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .match input {
+            margin: 10px 0;
+            padding: 5px;
+            width: 40px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        .match button {
+            padding: 8px 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            background-color: #2d3436;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .match button:hover {
+            background-color: #0984e3;
+        }
+
+        /* Special Style for the First Rank */
+        tbody tr:first-child {
+            background-color: rgba(45, 52, 54, 0.9);
+            color: #00cec9;
+            font-weight: bold;
+            animation: first-rank-glow 2s infinite alternate;
+        }
+
+        @keyframes first-rank-glow {
+            from {
+                box-shadow: 0 0 10px #81ecec;
+            }
+            to {
+                box-shadow: 0 0 20px #00cec9;
+            }
+        }
+    </style>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <button onclick="showSection('rankings')">Rankings</button>
+        <button onclick="showSection('bracket')">Bracket</button>
+        <button onclick="showSection('players')">Players</button>
+    </nav>
+
+    <!-- Rankings Section -->
+    <div id="rankings" class="section active">
+        <h1>Top 8 Rankings</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Team</th>
+                    <th>Manager</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>Bovaa</td><td>Bavly Mounir</td></tr>
+                <tr><td>2</td><td>Verinaaaaa</td><td>Verinaa Adel</td></tr>
+                <tr><td>3</td><td>Philo</td><td>Philo Emil</td></tr>
+                <tr><td>4</td><td>Bo4kaa4</td><td>Bishoy Emad</td></tr>
+                <tr><td>5</td><td>Bavlos ⚡</td><td>Bavly Aziz ⚡</td></tr>
+                <tr><td>6</td><td>Dr3m</td><td>Youssef Hany</td></tr>
+                <tr><td>7</td><td>Blues FC</td><td>Romany</td></tr>
+                <tr><td>8</td><td>بابا الشغلانة</td><td>سيف البير</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bracket Section -->
+    <div id="bracket" class="section">
+        <h1>Road to the Cup</h1>
+        <div class="bracket-container">
+            <!-- Quarter-Finals -->
+            <div class="round">
+                <span>Quarter-Finals</span>
+                <div class="match">
+                    <span>Bovaa</span>
+                    <input type="number" placeholder="Score" />
+                    <span>Verinaaaaa</span>
+                    <button>Advance Winner</button>
+                </div>
+                <div class="match">
+                    <span>Philo</span>
+                    <input type="number" placeholder="Score" />
+                    <span>Bo4kaa4</span>
+                    <button>Advance Winner</button>
+                </div>
+                <div class="match">
+                    <span>Bavlos ⚡</span>
+                    <input type="number" placeholder="Score" />
+                    <span>Dr3m</span>
+                    <button>Advance Winner</button>
+                </div>
+                <div class="match">
+                    <span>Blues FC</span>
+                    <input type="number" placeholder="Score" />
+                    <span>بابا الشغلانة</span>
+                    <button>Advance Winner</button>
+                </div>
+            </div>
+
+            <!-- Semi-Finals -->
+            <div class="round">
+                <span>Semi-Finals</span>
+                <div class="match">
+                    <span>TBD</span>
+                    <input type="number" placeholder="Score" />
+                    <span>TBD</span>
+                    <button>Advance Winner</button>
+                </div>
+                <div class="match">
+                    <span>TBD</span>
+                    <input type="number" placeholder="Score" />
+                    <span>TBD</span>
+                    <button>Advance Winner</button>
+                </div>
+            </div>
+
+            <!-- Final -->
+            <div class="round">
+                <span>Final</span>
+                <div class="match">
+                    <span>TBD</span>
+                    <input type="number" placeholder="Score" />
+                    <span>TBD</span>
+                    <button>Declare Winner</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Players Section -->
+    <div id="players" class="section">
+        <h1>Players</h1>
+        <div class="player-card-container">
+            <div class="player-card">
+                <h3>Bovaa</h3>
+                <p>Manager: Bavly Mounir</p>
+            </div>
+            <div class="player-card">
+                <h3>Verinaaaaa</h3>
+                <p>Manager: Verinaa Adel</p>
+            </div>
+            <div class="player-card">
+                <h3>Philo</h3>
+                <p>Manager: Philo Emil</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Section Switching -->
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+
+
                 <tbody>
                     <tr><td>1</td><td>Bovaa</td><td>Bavly mounir</td><td>50</td></td><td>50</td></tr>
                     <tr><td>2</td><td>Verinaaaaa</td><td>Verinaa adel</td><td>47</td><td>47</td></tr>
