@@ -17,150 +17,22 @@
             <button onclick="showSection('all-time-best-players')">Top Players - All Time</button>
             <button onclick="showSection('all-teams')">All Teams</button>
 <button onclick="showSection('fantasy-cup')">Fantasy Cup</button>
-            <!-- Section Buttons -->
-<button class="button" onclick="showSection('rankings')">View Rankings</button>
-<button class="button" onclick="showSection('cup-bracket')">View Cup Bracket</button>
-
-<!-- Rankings Section -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fantasy Cup - Road to the Cup</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url("https://raw.githubusercontent.com/DaweryElAsfar/DaweryElAsfar.github.io/refs/heads/main/modern-cricket-stadium-night.jpg");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: #d0d0d0; 
-        }
-
-        /* Navigation Bar */
-        nav {
-            background-color: rgba(30, 39, 46, 0.9); 
-            color: white;
-            display: flex;
-            justify-content: space-around;
-            padding: 15px;
-        }
-
-        nav button {
-            background-color: #2d3436; 
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-        }
-
-        nav button:hover {
-            background-color: #0984e3; 
-        }
-
-        /* Section Styling */
-        .section {
-            display: none;
-            margin: 40px auto;
-            max-width: 900px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .section.active {
-            display: block;
-        }
-
-        /* Bracket Container */
-        .bracket-container {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 30px;
-            gap: 50px;
-        }
-
-        /* Round Styling */
-        .round {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .round span {
-            font-size: 18px;
-            color: #dfe6e9;
-            font-weight: bold;
-        }
-
-        /* Match Styling */
-        .match {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: rgba(34, 47, 62, 0.9);
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .match input {
-            margin: 10px 0;
-            padding: 5px;
-            width: 40px;
-            text-align: center;
-            background-color: #fff;
-            border-radius: 5px;
-        }
-
-        .match button {
-            padding: 8px 16px;
-            margin-top: 10px;
-            cursor: pointer;
-            background-color: #2d3436;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .match button:hover {
-            background-color: #0984e3;
-        }
-
-        /* Special Style for the First Rank */
-        tbody tr:first-child {
-            background-color: rgba(45, 52, 54, 0.9);
-            color: #00cec9;
-            font-weight: bold;
-            animation: first-rank-glow 2s infinite alternate;
-        }
-
-        @keyframes first-rank-glow {
-            from {
-                box-shadow: 0 0 10px #81ecec;
-            }
-            to {
-                box-shadow: 0 0 20px #00cec9;
-            }
-        }
-    </style>
-
-
-
+        </nav>
+    </header>
+    <main>
+        <!-- Fantasy Teams Section -->
+        <section id="fantasy-teams" class="section active">
+            <h2>Team Points - Last Round</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team Name</th>
+                        <th>Manager</th>
+                        <th>Last Round Points</th>
+                        <th>Total Points</th>
+                    </tr>
+                </thead>
                 <tbody>
                     <tr><td>1</td><td>Bovaa</td><td>Bavly mounir</td><td>50</td></td><td>50</td></tr>
                     <tr><td>2</td><td>Verinaaaaa</td><td>Verinaa adel</td><td>47</td><td>47</td></tr>
@@ -229,10 +101,9 @@
                 </div>
             </div>
         </section>
-    
 <section id="fantasy-cup" class="section">
   <div id="fantasy-cup-root"></div>
-
+</section>
     </main>
 
     <script src="script.js"></script>
